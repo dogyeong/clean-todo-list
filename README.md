@@ -10,10 +10,10 @@ Model (플랫폼에 관계없이 사용가능해야 함)
 - UseCase : 운영 관점에서의 비즈니스로직?
 ---
 Adapter (인터페이스 어댑터 계층, 웹에서 서비스할 수 있도록 변환하는 역할)
-- Controller
-- Presenter
-- View
+- Controller: UseCase로 인풋을 전달
+- Presenter: UseCase의 아웃풋을 받아서 ViewModel을 만드는 역할
+  - View는 테스트하기 어렵기 때문에 이쪽 레이어에서 테스트하기 좋은 부분을 추출한 것이 Presenter, ViewModel이다
+- View: 만들어진 ViewModel로 화면을 그리는 역할
 ---
-Driver (제일 구체적인 계층.)
+Driver (사실상 DB계층)
 - Storage
-

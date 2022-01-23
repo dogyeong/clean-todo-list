@@ -1,8 +1,11 @@
+import { Controller } from "./adapters/controller";
+import { Presenter } from "./adapters/presenter";
+import { View } from "./adapters/view";
+import { Interactor } from "./models/interactor.use-case";
 import './style.css'
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+const interactor = new Interactor()
+const presenter = new Presenter(interactor)
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+new View(document.getElementById('app')!, presenter)
+new Controller(document.getElementById('app')!, interactor)

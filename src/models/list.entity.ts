@@ -7,12 +7,8 @@ export const enum DisplayType {
 }
 
 export class List {
-  public readonly todos: Todo[]
+  public readonly todos: Todo[] = []
   private _displayType: DisplayType = DisplayType.ALL
-
-  constructor() {
-    this.todos = []
-  }
 
   get displayType() {
     return this._displayType

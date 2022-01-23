@@ -1,3 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5,4 +12,68 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto 0;
+}
+
+section {
+  padding: 8px;
+  border-left: 1px solid #7d96b3;
+  border-bottom: 1px solid #7d96b3;
+  border-right: 1px solid #7d96b3;
+}
+
+section:first-child {
+  border-top: 1px solid #7d96b3;
+}
+
+
+.item.completed {
+  text-decoration: line-through;
+}
+
+section.input input {
+  width: 100%;
+  padding: 4px;
+  border: 0;
+  font-size: 20px;
+}
+
+section.list li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+section.list .item {
+  cursor: pointer;
+}
+
+section.list .del {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+section.menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  background: #fff;
+  border-radius: 4px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: 1px solid #7d96b3;
+}
+
+.btn.checked {
+  border: 1px solid #2c3e50;
 }
