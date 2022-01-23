@@ -31,6 +31,7 @@ section:first-child {
 
 .item.completed {
   text-decoration: line-through;
+  color: #7d96b3;
 }
 
 section.input input {
