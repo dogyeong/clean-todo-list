@@ -1,4 +1,4 @@
-import { Interactor } from "./interactor.use-case";
+import { Interactor, StorageInterface } from "./interactor.use-case";
 import { DisplayType } from "./list.entity";
 import { Todo } from "./todo.entity";
 
@@ -6,7 +6,7 @@ describe('인터랙터는', () => {
   let interactor: Interactor;
 
   beforeEach(() => {
-    interactor = new Interactor()
+    interactor = new Interactor({ save() {}, load() {} } as unknown as StorageInterface)
   })
 
   it('기본 displayType은 ALL이여야 한다', () => {

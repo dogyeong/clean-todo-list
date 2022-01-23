@@ -13,9 +13,18 @@ interface InteractorInterface {
   changeDisplayType: (type: DisplayType) => Todo[]
 }
 
+interface StorageInterface {
+  save: (list: List) => void
+  load: () => List | null
+}
+
 class Interactor implements InteractorInterface {
-  private list = new List()
+  private list: List
   private subscribers: Subscriber[] = []
+
+  constructor(private readonly storage: StorageInterface) {
+    this.list = storage.load() ?? new List()
+  }
 
   get displayType() {
     return this.list.displayType
@@ -31,6 +40,7 @@ class Interactor implements InteractorInterface {
   private publish() {
     const todos = this.getTodos()
     this.subscribers.forEach((sub) => sub(todos, this.displayType))
+    this.storage.save(this.list)
   }
 
   public addTodo(content: string) {
@@ -77,4 +87,4 @@ class Interactor implements InteractorInterface {
   }
 }
 
-export { Interactor, InteractorInterface }
+export { Interactor, InteractorInterface, StorageInterface }

@@ -59,6 +59,7 @@ section.list .del {
 section.menu {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .btn {

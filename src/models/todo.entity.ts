@@ -1,15 +1,11 @@
-let id = 0
+const generateRandomId = () => (Math.random() * 1000000).toString(32).replace('.', '')
 
 export class Todo {
-  public readonly id: string
-  public readonly createdAt: number
-  public completed: boolean
-  public deleted: boolean
-
-  constructor(public readonly content = '') {
-    this.id = String(id++)
-    this.createdAt = Date.now()
-    this.completed = false
-    this.deleted = false
-  }
+  constructor(
+    public readonly content = '',
+    public readonly id: string = generateRandomId(),
+    public readonly createdAt: number = Date.now(),
+    public completed: boolean = false,
+    public deleted: boolean = false,
+  ) {}
 }
